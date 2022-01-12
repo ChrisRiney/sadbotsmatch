@@ -137,7 +137,7 @@ def draw_covers(canvas):
         else:
             canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 860), 50, "Black")
     if click_count == 1:
-        canvas.draw_text("Click a tile to start...", (575, 390), 30, "Yellow")
+        canvas.draw_text("Click a tile to start...", (575, 405), 30, "Yellow")
     if correct_moves == 21:
         music.pause()
         canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
