@@ -122,6 +122,7 @@ fin_square_list = list((0, 0, 0, 0, 0, 0,
                         0, 0, 0, 0, 0, 0))
 
 def draw_covers(canvas):
+    global accuracy
     if move_count > 0:
         accuracy = round(((correct_moves / move_count) * 100), 2)
     for i in range(len(pos_list2)):
@@ -144,6 +145,7 @@ def draw_covers(canvas):
         canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
         canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
         canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
+        in_game_timer.stop()
         if (seconds % 60) < 10:
             canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 510), 40, "Green")
         else:
@@ -256,6 +258,8 @@ def click(pos):
                 if not ((pos[0] > ((hape_set_list[pos_num1])[1])[0] - half_hape and pos[0] < ((hape_set_list[pos_num1])[1])[0] + half_hape and pos[1] > ((hape_set_list[pos_num1])[1])[1] - half_hape and pos[1] < ((hape_set_list[pos_num1])[1])[1] + half_hape) or (hape_set_list[pos_num2])[3] == 1):
                     click_count += 1
         correct_pos = 0
+        if move_count > 0:
+            accuracy = round(((correct_moves / move_count) * 100), 2)
         if click_count == 2:
             reset_current = reset_button
             in_game_timer.start()
@@ -418,7 +422,7 @@ def close_cover2():
 def game_timer():
     global time
     global seconds
-    if correct_moves != 15:
+    if correct_moves != 21:
         time += 1
         seconds = 2.3968 * (time / 600)
         
