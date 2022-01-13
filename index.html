@@ -147,12 +147,12 @@ def draw_covers(canvas):
     if correct_moves == 21:
         music.pause()
         canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
-        canvas.draw_text((str(int(move_count))), (138, 125), 34, "Green")
-        canvas.draw_text((str(accuracy)) + "%", (185, 258), 34, "Green")
+        canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
+        canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
         if (seconds % 60) < 10:
-            canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (105, 395), 34, "Green")
+            canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 510), 40, "Green")
         else:
-            canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (105, 395), 34, "Green")
+            canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (375, 510), 40, "Green")
     if click_count == 1:
         canvas.draw_image(start_instructions, (1400 / 2, 130 / 2), (1400, 130), (700, 395), (1400, 100.43))
             
