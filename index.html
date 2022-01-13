@@ -82,6 +82,10 @@ pos_list2 = [(310, 65), (440, 65), (570, 65), (700, 65), (830, 65), (960, 65),
             (570, 585), (700, 585), (830, 585), (960, 585), (1090, 585), (310, 715),
             (440, 715), (570, 715), (700, 715), (830, 715), (960, 715), (1090, 715)]
 
+reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1QJauJDGr3TgD7tY26lsDn9nTMky7UScM")
+pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
+reset_current = pressed_reset
+leaderboard = simplegui.load_image("https://docs.google.com/uc?export=download&id=1FUk_O9ieKsgYH0TjTRpazZ_1XTn23Hdc")
 tracker = simplegui.load_image("https://docs.google.com/uc?export=download&id=1p8XdnNa9gFLa29K8XPbRrGl4xc5jbf_h")
 game_results = simplegui.load_image("https://docs.google.com/uc?export=download&id=1La8FusQ3i0Y45ixxF5KI2V5b86l8ULPW")
 hape_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1d9p0DXGzzZd_vjiPVJfD5f7GPue-SsG5") 
@@ -130,26 +134,25 @@ def draw_covers(canvas):
         canvas.draw_image((hape_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (hape_set_list[i])[1], (hape_set_list[i])[2])
     for i in range(len(cover_size_list)):
         canvas.draw_image(hape_cover, (400 / 2, 400 / 2), (400, 400), pos_list2[i], cover_size_list[i])
-    if correct_moves < 21:
-        canvas.draw_line([0, 845], [1400, 845], 130, "White")
-        canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 845), (1400, 130))
-        canvas.draw_text((str(int(move_count))), (190, 860), 50, "Black")
-        canvas.draw_text((str(accuracy)) + "%", (1210, 860), 50, "Black")
-        if (seconds % 60) < 10:
-            canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (640, 860), 50, "Black")
-        else:
-            canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 860), 50, "Black")
-    if click_count == 1:
-        canvas.draw_text("Click a tile to start...", (575, 400), 30, "Yellow")
+    canvas.draw_line([0, 845], [1400, 845], 130, "White")
+    canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 845), (1400, 130))
+    canvas.draw_text((str(int(move_count))), (190, 860), 50, "Black")
+    canvas.draw_text((str(accuracy)) + "%", (1210, 860), 50, "Black")
+    canvas.draw_image(leaderboard, (245 / 2, 780 / 2), (245, 780), (122.5, 390), (245, 780))
+    canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
+    if (seconds % 60) < 10:
+        canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (640, 860), 50, "Black")
+    else:
+        canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 860), 50, "Black")
     if correct_moves == 21:
         music.pause()
-        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
-        canvas.draw_text((str(int(move_count))), (421, 162), 40, "Green")
-        canvas.draw_text((str(accuracy)) + "%", (485, 336), 40, "Green")
+        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (710, 455), (910, 910))
+        canvas.draw_text((str(int(move_count))), (138, 125), 34, "Green")
+        canvas.draw_text((str(accuracy)) + "%", (185, 258), 34, "Green")
         if (seconds % 60) < 10:
-            canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (377, 510), 40, "Green")
+            canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (105, 395), 34, "Green")
         else:
-            canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (377, 510), 40, "Green")
+            canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (105, 395), 34, "Green")
         
             
 def click(pos):
@@ -164,6 +167,7 @@ def click(pos):
     global correct_moves
     global accuracy
     global click_on
+    global reset_current
     if (pause1 == 1 or pause2 == 1 or pause3 == 1 or pause4 == 1) or (pause1 == 2 or pause2 == 2 or pause3 == 2 or pause4 == 2):
         click_on = 1
     if click_on == 1:
@@ -249,7 +253,7 @@ def click(pos):
                                     flip_sound2.play()
                                     close_image1_timer.start()  
                                     
-        if (correct_pos == 0) and ((pos[0] - 245) % 130 != 0) and (pos[1] % 130 != 0) and (pos[1] < 780):                          
+        if (correct_pos == 0) and ((pos[0] - 245) % 130 != 0) and ((pos[1]) % 130 != 0) and (pos[1] < 780):                          
             if click_count % 2 != 0 and not (hape_set_list[pos_num1])[3] == 1:
                 click_count += 1
             if click_count % 2 == 0:
@@ -259,9 +263,12 @@ def click(pos):
         if move_count > 0:
             accuracy = round(((correct_moves / move_count) * 100), 2)
         if click_count == 2:
+            reset_current = reset_button
             in_game_timer.start()
             music.play()
-    
+    if (pos[0] > 1193 and pos[0] < 1358 and pos[1] < 101 and pos[1] > 46):
+        reset_current = pressed_reset
+        reset()
 def flip_image():
     global click_on
     click_on = 0 
@@ -480,7 +487,6 @@ close_cover1_timer = simplegui.create_timer(1, close_cover1)
 close_cover2_timer = simplegui.create_timer(1, close_cover2)
 in_game_timer = simplegui.create_timer(1, game_timer)
 frame = simplegui.create_frame("Match Hape", 1400, 910)
-frame.add_button("Restart", reset)
 frame.set_draw_handler(draw_covers) 
 frame.set_mouseclick_handler(click)
 frame.start()
