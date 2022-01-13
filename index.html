@@ -82,7 +82,7 @@ start_instructions = simplegui.load_image("https://docs.google.com/uc?export=dow
 reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1QJauJDGr3TgD7tY26lsDn9nTMky7UScM")
 pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
 reset_current = pressed_reset
-leaderboard = simplegui.load_image("https://docs.google.com/uc?export=download&id=1zyMEoyzAS0s2iNNpej-dAqiQGoka5xbW")
+leaderboard = simplegui.load_image("https://docs.google.com/uc?export=download&id=1vykDDsRCa6MDagB_44y36nX8FE0zBxQm")
 tracker = simplegui.load_image("https://docs.google.com/uc?export=download&id=1p8XdnNa9gFLa29K8XPbRrGl4xc5jbf_h")
 game_results = simplegui.load_image("https://docs.google.com/uc?export=download&id=1f_vilWvMvCHRYFCqP-uIKmFX1ZPFoo34")
 hape_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1d9p0DXGzzZd_vjiPVJfD5f7GPue-SsG5") 
@@ -122,9 +122,6 @@ fin_square_list = list((0, 0, 0, 0, 0, 0,
                         0, 0, 0, 0, 0, 0))
 
 def draw_covers(canvas):
-    global accuracy
-    if move_count > 0:
-        accuracy = round(((correct_moves / move_count) * 100), 2)
     for i in range(len(pos_list2)):
         canvas.draw_image((hape_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (hape_set_list[i])[1], (hape_set_list[i])[2])
     for i in range(len(cover_size_list)):
@@ -142,7 +139,7 @@ def draw_covers(canvas):
     canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
     if correct_moves == 15:
         music.pause()
-        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
+        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
         canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
         canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
         in_game_timer.stop()
@@ -152,7 +149,7 @@ def draw_covers(canvas):
             canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (375, 510), 40, "Green")
     if click_count == 1:
         canvas.draw_image(start_instructions, (1400 / 2, 130 / 2), (1400, 130), (700, 310), (1400, 100.43))
-            
+        
 def click(pos):
     global square_num1
     global square_num2
@@ -163,9 +160,12 @@ def click(pos):
     global cover_reducer1
     global move_count
     global correct_moves
-    global accuracy
     global click_on
     global reset_current
+    global accuracy
+    print(correct_moves)
+    print(move_count)
+    print(accuracy)
     if (pause1 == 1 or pause2 == 1 or pause3 == 1 or pause4 == 1) or (pause1 == 2 or pause2 == 2 or pause3 == 2 or pause4 == 2):
         click_on = 1
     if click_on == 1:
@@ -265,6 +265,8 @@ def click(pos):
     if (pos[0] > 1193 and pos[0] < 1358 and pos[1] < 101 and pos[1] > 46):
         reset_current = pressed_reset
         reset()
+    if move_count > 0:
+        accuracy = round(((correct_moves / move_count) * 100), 2)
         
 def flip_image():
     global click_on
