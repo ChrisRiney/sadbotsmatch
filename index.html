@@ -82,7 +82,7 @@ start_instructions = simplegui.load_image("https://docs.google.com/uc?export=dow
 reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1QJauJDGr3TgD7tY26lsDn9nTMky7UScM")
 pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
 reset_current = pressed_reset
-leaderboard = simplegui.load_image("https://docs.google.com/uc?export=download&id=11Sb6hoBowEKz0tsRp79FTHiDfTqt-vOH")
+leaderboard = simplegui.load_image("https://docs.google.com/uc?export=download&id=1apC3_CtyVisAa3XiBvA4VTEpqFizXcH-")
 tracker = simplegui.load_image("https://docs.google.com/uc?export=download&id=1p8XdnNa9gFLa29K8XPbRrGl4xc5jbf_h")
 game_results = simplegui.load_image("https://docs.google.com/uc?export=download&id=1f_vilWvMvCHRYFCqP-uIKmFX1ZPFoo34")
 hape_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1d9p0DXGzzZd_vjiPVJfD5f7GPue-SsG5") 
@@ -142,7 +142,7 @@ def draw_covers(canvas):
     canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
     if correct_moves == 15:
         music.pause()
-        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
+        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
         canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
         canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
         in_game_timer.stop()
@@ -258,8 +258,6 @@ def click(pos):
                 if not ((pos[0] > ((hape_set_list[pos_num1])[1])[0] - half_hape and pos[0] < ((hape_set_list[pos_num1])[1])[0] + half_hape and pos[1] > ((hape_set_list[pos_num1])[1])[1] - half_hape and pos[1] < ((hape_set_list[pos_num1])[1])[1] + half_hape) or (hape_set_list[pos_num2])[3] == 1):
                     click_count += 1
         correct_pos = 0
-        if move_count > 0:
-            accuracy = round(((correct_moves / move_count) * 100), 2)
         if click_count == 2:
             reset_current = reset_button
             in_game_timer.start()
