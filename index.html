@@ -142,6 +142,7 @@ def draw_covers(canvas):
         canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
         canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
         canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
+	in_game_timer.stop()
         if (seconds % 60) < 10:
             canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 510), 40, "Green")
         else:
