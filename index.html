@@ -142,7 +142,7 @@ def draw_covers(canvas):
     canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
     if correct_moves == 15:
         music.pause()
-        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
+        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
         canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
         canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
         in_game_timer.stop()
