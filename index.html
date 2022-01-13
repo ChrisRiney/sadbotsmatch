@@ -82,6 +82,7 @@ pos_list2 = [(310, 65), (440, 65), (570, 65), (700, 65), (830, 65), (960, 65),
             (570, 585), (700, 585), (830, 585), (960, 585), (1090, 585), (310, 715),
             (440, 715), (570, 715), (700, 715), (830, 715), (960, 715), (1090, 715)]
 
+start_instructions = simplegui.load_image("https://docs.google.com/uc?export=download&id=10mSmzz-jD9AkpgNNH22n6I8F0EUbMM9r")
 reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1QJauJDGr3TgD7tY26lsDn9nTMky7UScM")
 pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
 reset_current = pressed_reset
@@ -96,7 +97,6 @@ correct_sound = simplegui.load_sound("https://docs.google.com/uc?export=download
 correct_sound.set_volume(0.1)
 flip_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")
 flip_sound2 = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")
-
 hape41 = simplegui.load_image("https://docs.google.com/uc?export=download&id=1CoEqX7VJEebALO73cOnAlJwXYCC0Oliq")
 hape42 = simplegui.load_image("https://docs.google.com/uc?export=download&id=1CoEqX7VJEebALO73cOnAlJwXYCC0Oliq")
 
@@ -153,7 +153,8 @@ def draw_covers(canvas):
             canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (105, 395), 34, "Green")
         else:
             canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (105, 395), 34, "Green")
-        
+    if click_count == 1:
+        canvas.draw_image(start_instructions, (1400 / 2, 130 / 2), (1400, 130), (700, 395), (1400, 100.43))
             
 def click(pos):
     global square_num1
