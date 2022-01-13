@@ -122,6 +122,8 @@ fin_square_list = list((0, 0, 0, 0, 0, 0,
                         0, 0, 0, 0, 0, 0))
 
 def draw_covers(canvas):
+    if move_count > 0:
+        accuracy = round(((correct_moves / move_count) * 100), 2)
     for i in range(len(pos_list2)):
         canvas.draw_image((hape_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (hape_set_list[i])[1], (hape_set_list[i])[2])
     for i in range(len(cover_size_list)):
@@ -254,8 +256,6 @@ def click(pos):
                 if not ((pos[0] > ((hape_set_list[pos_num1])[1])[0] - half_hape and pos[0] < ((hape_set_list[pos_num1])[1])[0] + half_hape and pos[1] > ((hape_set_list[pos_num1])[1])[1] - half_hape and pos[1] < ((hape_set_list[pos_num1])[1])[1] + half_hape) or (hape_set_list[pos_num2])[3] == 1):
                     click_count += 1
         correct_pos = 0
-        if move_count > 0:
-            accuracy = round(((correct_moves / move_count) * 100), 2)
         if click_count == 2:
             reset_current = reset_button
             in_game_timer.start()
