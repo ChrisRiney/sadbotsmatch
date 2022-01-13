@@ -134,10 +134,11 @@ def draw_covers(canvas):
         canvas.draw_image((hape_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (hape_set_list[i])[1], (hape_set_list[i])[2])
     for i in range(len(cover_size_list)):
         canvas.draw_image(hape_cover, (400 / 2, 400 / 2), (400, 400), pos_list2[i], cover_size_list[i])
-    canvas.draw_line([0, 845], [1400, 845], 130, "White")
-    canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 845), (1400, 130))
-    canvas.draw_text((str(int(move_count))), (190, 860), 50, "Black")
-    canvas.draw_text((str(accuracy)) + "%", (1210, 860), 50, "Black")
+    if correct_moves != 21:
+        canvas.draw_line([0, 845], [1400, 845], 130, "White")
+        canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 845), (1400, 130))
+        canvas.draw_text((str(int(move_count))), (190, 860), 50, "Black")
+        canvas.draw_text((str(accuracy)) + "%", (1210, 860), 50, "Black")
     canvas.draw_image(leaderboard, (245 / 2, 780 / 2), (245, 780), (122.5, 390), (245, 780))
     canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
     if (seconds % 60) < 10:
