@@ -146,7 +146,7 @@ def draw_covers(canvas):
         canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 860), 50, "Black")
     if correct_moves == 21:
         music.pause()
-        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (710, 455), (910, 910))
+        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (910, 910))
         canvas.draw_text((str(int(move_count))), (138, 125), 34, "Green")
         canvas.draw_text((str(accuracy)) + "%", (185, 258), 34, "Green")
         if (seconds % 60) < 10:
