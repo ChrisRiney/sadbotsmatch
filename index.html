@@ -61,6 +61,8 @@ correct_moves = 0
 accuracy = 0
 time = 0.000
 seconds = 0.001
+pos_holder1 = [0, 0]
+pos_holder2 = [0, 0]
 
 half_hape = 75.8333
 
@@ -163,9 +165,8 @@ def click(pos):
     global click_on
     global reset_current
     global accuracy
-    print(correct_moves)
-    print(move_count)
-    print(accuracy)
+    global pos_holder1
+    global pos_holder2
     if (pause1 == 1 or pause2 == 1 or pause3 == 1 or pause4 == 1) or (pause1 == 2 or pause2 == 2 or pause3 == 2 or pause4 == 2):
         click_on = 1
     if click_on == 1:
@@ -173,6 +174,7 @@ def click(pos):
             for z in range(len(pos_list2)):
                 if pos[0] > (pos_list2[z])[0] - half_hape and pos[0] < (pos_list2[z])[0] + half_hape and pos[1] > (pos_list2[z])[1] - half_hape and pos[1] < (pos_list2[z])[1] + half_hape:
                     square_num1 = z
+                    pos_holder1 = pos_list2[square_num1]
                     cover_timer.start()
                     flip_sound.play()
             for z in range(len(pos_list2)):
@@ -203,6 +205,7 @@ def click(pos):
                     for z in range(len(pos_list2)):
                         if pos[0] > (pos_list2[z])[0] - half_hape and pos[0] < (pos_list2[z])[0] + half_hape and pos[1] > (pos_list2[z])[1] - half_hape and pos[1] < (pos_list2[z])[1] + half_hape:
                             square_num2 = z
+                            pos_holder2 = pos_list2[square_num2]
                             close_cover2_timer.start()  
                             flip_sound2.play()
                     for z in range(len(pos_list2)):
@@ -239,6 +242,7 @@ def click(pos):
                         for z in range(len(pos_list2)):
                             if pos[0] > (pos_list2[z])[0] - half_hape and pos[0] < (pos_list2[z])[0] + half_hape and pos[1] > (pos_list2[z])[1] - half_hape and pos[1] < (pos_list2[z])[1] + half_hape:
                                 square_num2 = z
+                                pos_holder2 = pos_list2[square_num2]
                                 close_cover2_timer.start()  
                                 flip_sound2.play()
                         for z in range(len(pos_list2)):
@@ -291,6 +295,7 @@ def flip_cover():
     cover_reducer1 = list(cover_size_list[square_num1])
     if cover_reducer1[0] <= 15:
         cover_reducer1[0] = .001
+        pos_list2[square_num1] = (1500, 1000)
         click_on = 1
         click_on = 1
         click_on = 1
@@ -370,11 +375,12 @@ def close_cover1():
         close_cover1_timer.stop()
     if pause3 < 200:
         if cover_reducer1[0] <= 15:
-            cover_reducer1[0] = .001  
+            cover_reducer1[0] = .001
         else:
             cover_reducer1[0] -= 10
         pause3 += 1  
     if pause3 >= 200:
+        pos_list2[square_num1] = pos_holder1
         if cover_reducer1[0] >= 135:
             click_on = 1
             click_on = 1
@@ -400,11 +406,13 @@ def close_cover2():
         close_cover2_timer.stop()
     if pause4 < 200:
         if cover_reducer2[0] <= 15:
-            cover_reducer2[0] = .001  
+            cover_reducer2[0] = .001
+            pos_list2[square_num2] = (1500, 1000)
         else:
             cover_reducer2[0] -= 10
         pause4 += 1  
     if pause4 >= 200:
+        pos_list2[square_num2] = pos_holder2
         if cover_reducer2[0] >= 135:
             click_on = 1
             click_on = 1
@@ -431,6 +439,7 @@ def reset():
     global cover_size_list
     global fin_square_list
     global pos_list
+    global pos_list2
     global move_count
     global correct_moves
     global accuracy
@@ -439,6 +448,12 @@ def reset():
     global seconds
     
     pos_list = [(320.833008, 75.833000), (472.499695, 75.833000), (624.166382, 75.833000), (775.833069, 75.833000), (927.499756, 75.833000), (1079.166504, 75.833000),
+            (320.833008, 227.499695), (472.499695, 227.499695), (624.166382, 227.499695), (775.833069, 227.499695), (927.499756, 227.499695), (1079.166504, 227.499695),
+            (320.833008, 379.166382), (472.499695, 379.166382), (624.166382, 379.166382), (775.833069, 379.166382), (927.499756, 379.166382), (1079.166504, 379.166382), 
+            (320.833008, 530.833069), (472.499695, 530.833069), (624.166382, 530.833069), (775.833069, 530.833069), (927.499756, 530.833069), (1079.166504, 530.833069), 
+            (320.833008, 682.499756), (472.499695, 682.499756), (624.166382, 682.499756), (775.833069, 682.499756), (927.499756, 682.499756), (1079.166504, 682.499756)]
+    
+    pos_list2 = [(320.833008, 75.833000), (472.499695, 75.833000), (624.166382, 75.833000), (775.833069, 75.833000), (927.499756, 75.833000), (1079.166504, 75.833000),
             (320.833008, 227.499695), (472.499695, 227.499695), (624.166382, 227.499695), (775.833069, 227.499695), (927.499756, 227.499695), (1079.166504, 227.499695),
             (320.833008, 379.166382), (472.499695, 379.166382), (624.166382, 379.166382), (775.833069, 379.166382), (927.499756, 379.166382), (1079.166504, 379.166382), 
             (320.833008, 530.833069), (472.499695, 530.833069), (624.166382, 530.833069), (775.833069, 530.833069), (927.499756, 530.833069), (1079.166504, 530.833069), 
