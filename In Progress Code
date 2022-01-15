@@ -75,6 +75,8 @@ def set_mode():
                                 0, 0, 0, 0, 0,
                                 0, 0, 0, 0, 0))
         
+        leaderboard = simplegui.load_image("https://docs.google.com/uc?export=download&id=1f1Mo12KZmw2zMORBMvyKsfFTkjg1rrUF")
+        
         
     if choice == "medium":
         half_hape = 75.8333
@@ -153,13 +155,14 @@ def set_mode():
                                 0, 0, 0, 0, 0, 0, 0, 
                                 0, 0, 0, 0, 0, 0, 0))
         
+        leaderboard = simplegui.load_image("https://docs.google.com/uc?export=download&id=19AYLdFEmbZfx2SKf5zbaAThdVWfptV2R")
+        
 select_mode = simplegui.load_image("https://docs.google.com/uc?export=download&id=1ViybDZvLVe0aCSElbW6yogrekXUr_zLS")
 start_instructions = simplegui.load_image("https://docs.google.com/uc?export=download&id=10mSmzz-jD9AkpgNNH22n6I8F0EUbMM9r")
 reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1QJauJDGr3TgD7tY26lsDn9nTMky7UScM")
 pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
 reset_current = pressed_reset
 tracker = simplegui.load_image("https://docs.google.com/uc?export=download&id=1p8XdnNa9gFLa29K8XPbRrGl4xc5jbf_h")
-game_results = simplegui.load_image("https://docs.google.com/uc?export=download&id=1zySubYwwMEB-POroi9Kn5PYcGQPJTlmp")
 hape_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1d9p0DXGzzZd_vjiPVJfD5f7GPue-SsG5") 
 music = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1SW2paIVHIVprgSdLdDlC_H_n_OxlShFN")
 monkey_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1lQICz33aIAjaIDESAHH2n9_13mFhw9jd")
@@ -167,7 +170,10 @@ monkey_sound.set_volume(0.5)
 correct_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=17g6DynsUdLa_TtzHXc11zG-3N8O3dJEn")
 correct_sound.set_volume(0.1)
 flip_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")
-flip_sound2 = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")                      
+flip_sound2 = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81") 
+game_results_easy = simplegui.load_image("https://docs.google.com/uc?export=download&id=1EeriZbY9C4LJMG6Br5eR2aM64mit8m69")
+game_results_medium = simplegui.load_image("https://docs.google.com/uc?export=download&id=1_nOeyQC5IwgeHooM_EFOCcVfCJHhcKyW")
+game_results_hard = simplegui.load_image("https://docs.google.com/uc?export=download&id=1UeCdeJHUvAiUaYAHDMVhF1u7CBokrVgN")
 
 def draw_covers(canvas):
     if selecting == 1:
@@ -199,7 +205,7 @@ def draw_covers(canvas):
                     canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 849.1667), 50, "Black")
         if choice == "hard":
             if correct_moves != 21:
-                canvas.draw_line([0, 834.1667], [1400, 834.1667], 130, "White")
+                canvas.draw_line([0, 845], [1400, 845], 130, "White")
                 canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
                 canvas.draw_text((str(int(move_count))), (190, 849.1667), 50, "Black")
                 canvas.draw_text((str(accuracy)) + "%", (1210, 849.1667), 50, "Black")
@@ -212,7 +218,7 @@ def draw_covers(canvas):
         if choice == "easy":
             if correct_moves == 10:
                 music.pause()
-                canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
+                canvas.draw_image(game_results_easy, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
                 canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
                 canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
                 in_game_timer.stop()
@@ -223,7 +229,7 @@ def draw_covers(canvas):
         if choice == "medium":
             if correct_moves == 15:
                 music.pause()
-                canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
+                canvas.draw_image(game_results_medium, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
                 canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
                 canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
                 in_game_timer.stop()
@@ -234,7 +240,7 @@ def draw_covers(canvas):
         if choice == "hard":
             if correct_moves == 21:
                 music.pause()
-                canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
+                canvas.draw_image(game_results_hard, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
                 canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
                 canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
                 in_game_timer.stop()
