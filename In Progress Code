@@ -161,6 +161,7 @@ select_mode = simplegui.load_image("https://docs.google.com/uc?export=download&i
 start_instructions = simplegui.load_image("https://docs.google.com/uc?export=download&id=10mSmzz-jD9AkpgNNH22n6I8F0EUbMM9r")
 reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1QJauJDGr3TgD7tY26lsDn9nTMky7UScM")
 pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
+home_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1x1UDU_37Er71BW9zW7inA8f42-BPlHe1")
 reset_current = pressed_reset
 tracker = simplegui.load_image("https://docs.google.com/uc?export=download&id=1p8XdnNa9gFLa29K8XPbRrGl4xc5jbf_h")
 hape_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1d9p0DXGzzZd_vjiPVJfD5f7GPue-SsG5") 
@@ -177,7 +178,7 @@ game_results_hard = simplegui.load_image("https://docs.google.com/uc?export=down
 
 def draw_covers(canvas):
     if selecting == 1:
-        canvas.draw_image(select_mode, (1600 / 2, 1067 / 2), (1600, 1067), (1400 / 2, 910 / 2), (1400, 933.625))
+        canvas.draw_image(select_mode, (1600 / 2, 1067 / 2), (1600, 1067), (1400 / 2, 910 / 2), (1400, 933.625))   
     else:
         for i in range(len(pos_list2)):
             canvas.draw_image((hape_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (hape_set_list[i])[1], (hape_set_list[i])[2])
@@ -215,6 +216,7 @@ def draw_covers(canvas):
                     canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 849.1667), 50, "Black")
         canvas.draw_image(leaderboard, (245 / 2, 780 / 2), (245, 780), (122.5, 380), (245, 760))
         canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
+        canvas.draw_image(home_button, (344 / 2, 156 / 2), (344, 156), (1277.5, 200), (200, 87.798))
         if choice == "easy":
             if correct_moves == 10:
                 music.pause()
@@ -385,6 +387,8 @@ def click(pos):
         if (pos[0] > 1193 and pos[0] < 1358 and pos[1] < 101 and pos[1] > 46):
             reset_current = pressed_reset
             reset()
+        if (pos[0] > 1185 and pos[0] < 1365 and pos[1] > 164 and pos[1] < 234):
+            home()
         if move_count > 0:
             accuracy = round(((correct_moves / move_count) * 100), 2)
         
@@ -873,6 +877,10 @@ def reset():
     seconds = 0.001
     in_game_timer.stop()
     music.rewind()
+    
+def home():
+    global selecting
+    selecting = 1
         
 cover_timer = simplegui.create_timer(1, flip_cover)
 image_timer = simplegui.create_timer(1, flip_image)
