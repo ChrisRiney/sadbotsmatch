@@ -179,7 +179,7 @@ def draw_covers(canvas):
             canvas.draw_image(hape_cover, (400 / 2, 400 / 2), (400, 400), pos_list2[i], cover_size_list[i])
         if choice == "easy":
             if correct_moves != 10:
-                canvas.draw_line([0, 834.1667], [1400, 834.1667], 151.6667, "White")
+                canvas.draw_line([0, 819], [1400, 819], 182, "White")
                 canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
                 canvas.draw_text((str(int(move_count))), (190, 849.1667), 50, "Black")
                 canvas.draw_text((str(accuracy)) + "%", (1210, 849.1667), 50, "Black")
@@ -199,7 +199,7 @@ def draw_covers(canvas):
                     canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 849.1667), 50, "Black")
         if choice == "hard":
             if correct_moves != 21:
-                canvas.draw_line([0, 834.1667], [1400, 834.1667], 151.6667, "White")
+                canvas.draw_line([0, 834.1667], [1400, 834.1667], 130, "White")
                 canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
                 canvas.draw_text((str(int(move_count))), (190, 849.1667), 50, "Black")
                 canvas.draw_text((str(accuracy)) + "%", (1210, 849.1667), 50, "Black")
