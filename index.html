@@ -5,7 +5,6 @@
 <script src="embedskulptor.js"></script>
 </head>
 <body style = "background-color: black; font-size: 100px;">
-@media only screen and (min-width: 768px) {	
 	<img src =
 "Hape Black (2).png" 
 	alt = "Black Hape" 
@@ -24,25 +23,6 @@
 	     width = "200"
 	     height = "200"	 
          align = right>
-}
-	<img src =
-"Hape Black (2).png" 
-	alt = "Black Hape" 
-	    width = "100"
-	    height = "100"	 
-        align = left>	
-	<center> <img src =
-"HAPE MATCH FINAL.png"
-	alt = "HAPE MATCH"
-	    width = "362"
-	    height = "91.5"
-		     </center>
-	<img src =
-"Hape Black 2 (2).png" 
-         alt = "Black Hape 2" 
-	     width = "100"
-	     height = "100"	 
-         align = right>
 <script>
 (function() {
 var options = {
@@ -60,7 +40,6 @@ var options = {
 embedSkulptor(options,(function () {/*
 import simplegui
 import random
-
 cover_reducer1 = 0
 cover_reducer2 = 0
 pos_num1 = 0
@@ -83,23 +62,18 @@ time = 0.000
 seconds = 0.001
 pos_holder1 = [0, 0]
 pos_holder2 = [0, 0]
-
 half_hape = 75.8333
-
 random_pos = (0, 0)
-
 pos_list = [(320.833008, 75.833000), (472.499695, 75.833000), (624.166382, 75.833000), (775.833069, 75.833000), (927.499756, 75.833000), (1079.166504, 75.833000),
             (320.833008, 227.499695), (472.499695, 227.499695), (624.166382, 227.499695), (775.833069, 227.499695), (927.499756, 227.499695), (1079.166504, 227.499695),
             (320.833008, 379.166382), (472.499695, 379.166382), (624.166382, 379.166382), (775.833069, 379.166382), (927.499756, 379.166382), (1079.166504, 379.166382), 
             (320.833008, 530.833069), (472.499695, 530.833069), (624.166382, 530.833069), (775.833069, 530.833069), (927.499756, 530.833069), (1079.166504, 530.833069), 
             (320.833008, 682.499756), (472.499695, 682.499756), (624.166382, 682.499756), (775.833069, 682.499756), (927.499756, 682.499756), (1079.166504, 682.499756)]
-
 pos_list2 = [(320.833008, 75.833000), (472.499695, 75.833000), (624.166382, 75.833000), (775.833069, 75.833000), (927.499756, 75.833000), (1079.166504, 75.833000),
             (320.833008, 227.499695), (472.499695, 227.499695), (624.166382, 227.499695), (775.833069, 227.499695), (927.499756, 227.499695), (1079.166504, 227.499695),
             (320.833008, 379.166382), (472.499695, 379.166382), (624.166382, 379.166382), (775.833069, 379.166382), (927.499756, 379.166382), (1079.166504, 379.166382), 
             (320.833008, 530.833069), (472.499695, 530.833069), (624.166382, 530.833069), (775.833069, 530.833069), (927.499756, 530.833069), (1079.166504, 530.833069), 
             (320.833008, 682.499756), (472.499695, 682.499756), (624.166382, 682.499756), (775.833069, 682.499756), (927.499756, 682.499756), (1079.166504, 682.499756)]
-
 start_instructions = simplegui.load_image("https://docs.google.com/uc?export=download&id=10mSmzz-jD9AkpgNNH22n6I8F0EUbMM9r")
 reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1QJauJDGr3TgD7tY26lsDn9nTMky7UScM")
 pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
@@ -117,32 +91,27 @@ flip_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id
 flip_sound2 = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")
 hape41 = simplegui.load_image("https://docs.google.com/uc?export=download&id=1CoEqX7VJEebALO73cOnAlJwXYCC0Oliq")
 hape42 = simplegui.load_image("https://docs.google.com/uc?export=download&id=1CoEqX7VJEebALO73cOnAlJwXYCC0Oliq")
-
 def select_pos(hape_pos):
     global pos_list
     hape_pos = random.choice(pos_list)
     pos_list.remove(hape_pos)
     return hape_pos
-
 hape_set_list = list((list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1DwKT5XZqw600ulV84iXeDG8AcqO5gyM8"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1DwKT5XZqw600ulV84iXeDG8AcqO5gyM8"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1Qq3_ktvFvwHhTJyD8Co-IKRO3Sev0_xc"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1Qq3_ktvFvwHhTJyD8Co-IKRO3Sev0_xc"), select_pos(random_pos), (.001, 151.667), 0)),  list((simplegui.load_image("https://docs.google.com/uc?export=download&id=10752ttFsC2OGfW9ewkUhDNae46vxjx4X"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=10752ttFsC2OGfW9ewkUhDNae46vxjx4X"), select_pos(random_pos), (.001, 151.667), 0)),
                       list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1QfrDirY45VFcMhwr8aPfbeIWJsQ2mbaG"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1QfrDirY45VFcMhwr8aPfbeIWJsQ2mbaG"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1dLApiEJ2PC8AX4O0IqyXfOKce5ynSlF4"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1dLApiEJ2PC8AX4O0IqyXfOKce5ynSlF4"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1ZSASHiHmLjyPYOnKsfO-9Ne4x46k0GiN"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1ZSASHiHmLjyPYOnKsfO-9Ne4x46k0GiN"), select_pos(random_pos), (.001, 151.667), 0)),
                       list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1e2-LzNBwA3Y5woUKIztjdQ4Y6DvGwvg7"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1e2-LzNBwA3Y5woUKIztjdQ4Y6DvGwvg7"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1HTLtfvQo5IOWen9xRjJNWh8pC6c5RBkV"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1HTLtfvQo5IOWen9xRjJNWh8pC6c5RBkV"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1hiuQrywC6tkIZzIlSsnildfQXEb3xT_-"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1hiuQrywC6tkIZzIlSsnildfQXEb3xT_-"), select_pos(random_pos), (.001, 151.667), 0)),
                       list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1q7yvyPhmv_Paf0n823FFLrqvxV1LJ3me"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1q7yvyPhmv_Paf0n823FFLrqvxV1LJ3me"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1hWou2FbQQd1EDrJ_aSDPdVYApcdFOnNn"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1hWou2FbQQd1EDrJ_aSDPdVYApcdFOnNn"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=15sJq0q4UN_YB_7wU-MdSeKAnPmjUlBqF"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=15sJq0q4UN_YB_7wU-MdSeKAnPmjUlBqF"), select_pos(random_pos), (.001, 151.667), 0)), 
                       list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1dJ2Ui63XTgW9YMpqrGIdl33Y0DHSCIY2"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1dJ2Ui63XTgW9YMpqrGIdl33Y0DHSCIY2"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1mWzfhX2Pfa8wSXPmE9cdhqod6zd54eO2"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1mWzfhX2Pfa8wSXPmE9cdhqod6zd54eO2"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1CoEqX7VJEebALO73cOnAlJwXYCC0Oliq"), select_pos(random_pos), (.001, 151.667), 0)), list((simplegui.load_image("https://docs.google.com/uc?export=download&id=1CoEqX7VJEebALO73cOnAlJwXYCC0Oliq"), select_pos(random_pos), (.001, 151.667), 0))))
-
 cover_size_list = list(((151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667),
                         (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), 
                         (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), 
                         (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667),
                         (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667), (151.667, 151.667))) 
                        
-
 fin_square_list = list((0, 0, 0, 0, 0, 0, 
                         0, 0, 0, 0, 0, 0,
                         0, 0, 0, 0, 0, 0, 
                         0, 0, 0, 0, 0, 0, 
                         0, 0, 0, 0, 0, 0))
-
 def draw_covers(canvas):
     for i in range(len(pos_list2)):
         canvas.draw_image((hape_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (hape_set_list[i])[1], (hape_set_list[i])[2])
