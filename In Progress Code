@@ -177,27 +177,71 @@ def draw_covers(canvas):
             canvas.draw_image((hape_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (hape_set_list[i])[1], (hape_set_list[i])[2])
         for i in range(len(cover_size_list)):
             canvas.draw_image(hape_cover, (400 / 2, 400 / 2), (400, 400), pos_list2[i], cover_size_list[i])
-        if correct_moves != 15:
-            canvas.draw_line([0, 834.1667], [1400, 834.1667], 151.6667, "White")
-            canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
-            canvas.draw_text((str(int(move_count))), (190, 849.1667), 50, "Black")
-            canvas.draw_text((str(accuracy)) + "%", (1210, 849.1667), 50, "Black")
-            if (seconds % 60) < 10:
-                canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (640, 849.1667), 50, "Black")
-            else:
-                canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 849.1667), 50, "Black")
+        if choice == "easy":
+            if correct_moves != 10:
+                canvas.draw_line([0, 834.1667], [1400, 834.1667], 151.6667, "White")
+                canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
+                canvas.draw_text((str(int(move_count))), (190, 849.1667), 50, "Black")
+                canvas.draw_text((str(accuracy)) + "%", (1210, 849.1667), 50, "Black")
+                if (seconds % 60) < 10:
+                    canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (640, 849.1667), 50, "Black")
+                else:
+                    canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 849.1667), 50, "Black")
+        if choice == "medium":
+            if correct_moves != 15:
+                canvas.draw_line([0, 834.1667], [1400, 834.1667], 151.6667, "White")
+                canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
+                canvas.draw_text((str(int(move_count))), (190, 849.1667), 50, "Black")
+                canvas.draw_text((str(accuracy)) + "%", (1210, 849.1667), 50, "Black")
+                if (seconds % 60) < 10:
+                    canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (640, 849.1667), 50, "Black")
+                else:
+                    canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 849.1667), 50, "Black")
+        if choice == "hard":
+            if correct_moves != 21:
+                canvas.draw_line([0, 834.1667], [1400, 834.1667], 151.6667, "White")
+                canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
+                canvas.draw_text((str(int(move_count))), (190, 849.1667), 50, "Black")
+                canvas.draw_text((str(accuracy)) + "%", (1210, 849.1667), 50, "Black")
+                if (seconds % 60) < 10:
+                    canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (640, 849.1667), 50, "Black")
+                else:
+                    canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (640, 849.1667), 50, "Black")
         canvas.draw_image(leaderboard, (245 / 2, 780 / 2), (245, 780), (122.5, 380), (245, 760))
         canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
-        if correct_moves == 15:
-            music.pause()
-            canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
-            canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
-            canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
-            in_game_timer.stop()
-            if (seconds % 60) < 10:
-                canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 510), 40, "Green")
-            else:
-                canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (375, 510), 40, "Green")
+        if choice == "easy":
+            if correct_moves == 10:
+                music.pause()
+                canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
+                canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
+                canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
+                in_game_timer.stop()
+                if (seconds % 60) < 10:
+                    canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 510), 40, "Green")
+                else:
+                    canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (375, 510), 40, "Green")
+        if choice == "medium":
+            if correct_moves == 15:
+                music.pause()
+                canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
+                canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
+                canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
+                in_game_timer.stop()
+                if (seconds % 60) < 10:
+                    canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 510), 40, "Green")
+                else:
+                    canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (375, 510), 40, "Green")
+        if choice == "hard":
+            if correct_moves == 21:
+                music.pause()
+                canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
+                canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
+                canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
+                in_game_timer.stop()
+                if (seconds % 60) < 10:
+                    canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 510), 40, "Green")
+                else:
+                    canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (375, 510), 40, "Green")
         if click_count == 1:
             canvas.draw_image(start_instructions, (1400 / 2, 130 / 2), (1400, 130), (700, 310), (1400, 100.43))
         
