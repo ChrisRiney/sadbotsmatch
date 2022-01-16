@@ -924,7 +924,15 @@ def reset():
     
 def home():
     global selecting
+    global correct_moves
+    global move_count
+    global time
     selecting = 1
+    time = 0
+    move_count = 0.0
+    accuracy = 0.00
+    correct_moves = 0
+    
         
 cover_timer = simplegui.create_timer(1, flip_cover)
 image_timer = simplegui.create_timer(1, flip_image)
