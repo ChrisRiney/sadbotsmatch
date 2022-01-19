@@ -83,7 +83,7 @@ reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&
 pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
 reset_current = pressed_reset
 tracker = simplegui.load_image("https://docs.google.com/uc?export=download&id=1p8XdnNa9gFLa29K8XPbRrGl4xc5jbf_h")
-game_results = simplegui.load_image("https://docs.google.com/uc?export=download&id=1zySubYwwMEB-POroi9Kn5PYcGQPJTlmp")
+game_results = simplegui.load_image("https://docs.google.com/uc?export=download&id=1cNqWsUCUQxQ_ghRKTgOqkHFIrbCqf00X")
 cloodle_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1v3sAPvEEYdqxWXzlp_MQ31jmGGWSxAP5") 
 music = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1SW2paIVHIVprgSdLdDlC_H_n_OxlShFN")
 monkey_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1lQICz33aIAjaIDESAHH2n9_13mFhw9jd")
@@ -136,14 +136,14 @@ def draw_covers(canvas):
     canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
     if correct_moves == 10:
         music.pause()
-        canvas.draw_image(game_results, (1000 / 2, 1000 / 2), (1000, 1000), (700, 455), (912, 910))
-        canvas.draw_text((str(int(move_count))), (417, 161), 40, "Green")
-        canvas.draw_text((str(accuracy)) + "%", (480, 336), 40, "Green")
+        canvas.draw_image(game_results, (1000 / 2, 833 / 2), (1000, 833), (700, 364), (911, 728))
+        canvas.draw_text((str(int(move_count))), (417, 155), 40, "Green")
+        canvas.draw_text((str(accuracy)) + "%", (480, 322), 40, "Green")
         in_game_timer.stop()
         if (seconds % 60) < 10:
-            canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 510), 40, "Green")
+            canvas.draw_text(str(int(seconds / 60)) + ":0" + str(seconds % 60)[0] + ":" + str(seconds % 60)[2] + str(seconds % 60)[3], (375, 490), 40, "Green")
         else:
-            canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (375, 510), 40, "Green")
+            canvas.draw_text(str(int(seconds / 60)) + ":" + str(seconds % 60)[0] + str(seconds % 60)[1] + ":" + str(seconds % 60)[3] + str(seconds % 60)[4], (375, 490), 40, "Green")
         
 def click(pos):
     global square_num1
