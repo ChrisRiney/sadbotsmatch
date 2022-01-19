@@ -85,9 +85,6 @@ reset_current = pressed_reset
 tracker = simplegui.load_image("https://docs.google.com/uc?export=download&id=1p8XdnNa9gFLa29K8XPbRrGl4xc5jbf_h")
 game_results = simplegui.load_image("https://docs.google.com/uc?export=download&id=1cNqWsUCUQxQ_ghRKTgOqkHFIrbCqf00X")
 cloodle_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1iYxyhvOnlRQZFcIQYzIuEp7gUCYKbgKc") 
-music = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1SW2paIVHIVprgSdLdDlC_H_n_OxlShFN")
-monkey_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1lQICz33aIAjaIDESAHH2n9_13mFhw9jd")
-monkey_sound.set_volume(0.5)
 correct_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=17g6DynsUdLa_TtzHXc11zG-3N8O3dJEn")
 correct_sound.set_volume(0.1)
 flip_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")
@@ -137,7 +134,6 @@ def draw_covers(canvas):
                canvas.draw_image(start_instructions, (1400 / 2, 130 / 2), (1400, 130), (700, 364), (1400, 100.43))
     canvas.draw_image(reset_current, (754 / 2, 331 / 2), (754, 331), (1277.5, 75), (200, 87.798))
     if correct_moves == 10:
-        music.pause()
         canvas.draw_image(game_results, (1000 / 2, 833 / 2), (1000, 833), (700, 364), (911, 728))
         canvas.draw_text((str(int(move_count))), (417, 155), 40, "Green")
         canvas.draw_text((str(accuracy)) + "%", (480, 322), 40, "Green")
@@ -194,7 +190,6 @@ def click(pos):
                 move_count += 1
                 correct_moves += 1
                 image_timer.start()
-                monkey_sound.play()
             else:
                 if not (pos[0] > ((cloodle_set_list[pos_num1])[1])[0] - half_cloodle and pos[0] < ((cloodle_set_list[pos_num1])[1])[0] + half_cloodle and pos[1] > ((cloodle_set_list[pos_num1])[1])[1] - half_cloodle and pos[1] < ((cloodle_set_list[pos_num1])[1])[1] + half_cloodle):
                     for z in range(len(pos_list2)):
@@ -231,7 +226,6 @@ def click(pos):
                     move_count += 1
                     correct_moves += 1
                     image_timer.start()
-                    monkey_sound.play()
                 else:
                     if not (pos[0] > ((cloodle_set_list[pos_num1])[1])[0] - half_cloodle and pos[0] < ((cloodle_set_list[pos_num1])[1])[0] + half_cloodle and pos[1] > ((cloodle_set_list[pos_num1])[1])[1] - half_cloodle and pos[1] < ((cloodle_set_list[pos_num1])[1])[1] + half_cloodle):
                         for z in range(len(pos_list2)):
@@ -260,7 +254,6 @@ def click(pos):
         if click_count == 2:
             reset_current = reset_button
             in_game_timer.start()
-            music.play()
     if (pos[0] > 1193 and pos[0] < 1358 and pos[1] < 101 and pos[1] > 46):
         reset_current = pressed_reset
         reset()
@@ -479,7 +472,6 @@ def reset():
     time = 0.00
     seconds = 0.001
     in_game_timer.stop()
-    music.rewind()
         
 cover_timer = simplegui.create_timer(1, flip_cover)
 image_timer = simplegui.create_timer(1, flip_image)
