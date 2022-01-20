@@ -110,7 +110,7 @@ def draw_covers(canvas):
     for i in range(len(cover_size_list)):
         canvas.draw_image(cloodle_cover, (1080 / 2, 1080 / 2), (1080, 1080), pos_list2[i], cover_size_list[i])
     for i in range(len(cover_size_list)):
-        canvas.draw_image(image_frame, (400 / 2, 400 / 2), (400, 400), pos_list2[i], (182, 182))
+        canvas.draw_image(image_frame, (400 / 2, 400 / 2), (400, 400), (cloodle_set_list[i])[1], (182, 182))
     if correct_moves != 10:
         canvas.draw_line([0, 819], [1400, 819], 182, "White")
         canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
