@@ -106,6 +106,7 @@ fin_square_list = list((0, 0, 0, 0, 0, 0,
 
 def draw_covers(canvas):
     canvas.draw_image(background, (500 / 2, 500 / 2), (500, 500), (700, 455), (1400, 910))
+    canvas.draw_line([0, 819], [1400, 819], 182, "White")
     for i in range(len(pos_list2)):
         canvas.draw_image((cloodle_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (cloodle_set_list[i])[1], (cloodle_set_list[i])[2])
     for i in range(len(cover_size_list)):
@@ -113,7 +114,6 @@ def draw_covers(canvas):
     for i in range(len(cover_size_list)):
         canvas.draw_image(image_frame, (400 / 2, 400 / 2), (400, 400), (cloodle_set_list[i])[1], (182, 182))
     if correct_moves != 10:
-        canvas.draw_line([0, 819], [1400, 819], 182, "White")
         canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
         canvas.draw_text((str(int(move_count))), (190, 849.1667), 50, "Black")
         canvas.draw_text((str(accuracy)) + "%", (1210, 849.1667), 50, "Black")
