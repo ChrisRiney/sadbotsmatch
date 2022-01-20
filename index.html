@@ -104,7 +104,6 @@ fin_square_list = list((0, 0, 0, 0, 0, 0,
                         0, 0, 0, 0, 0, 0))
 
 def draw_covers(canvas):
-    canvas.draw_image(background, (256 / 2, 256 / 2), (256, 256), (700, 455), (1400, 910))
     for i in range(len(pos_list2)):
         canvas.draw_image((cloodle_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (cloodle_set_list[i])[1], (cloodle_set_list[i])[2])
     for i in range(len(cover_size_list)):
@@ -469,7 +468,7 @@ close_cover1_timer = simplegui.create_timer(1, close_cover1)
 close_cover2_timer = simplegui.create_timer(1, close_cover2)
 in_game_timer = simplegui.create_timer(1, game_timer)
 frame = simplegui.create_frame("Match Cloodle", 1400, 910)
-frame.set_canvas_background("Red")
+frame.set_canvas_background("Cyan")
 frame.set_draw_handler(draw_covers) 
 frame.set_mouseclick_handler(click)
 frame.start()
