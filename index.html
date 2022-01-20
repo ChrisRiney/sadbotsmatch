@@ -72,7 +72,7 @@ pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download
 reset_current = pressed_reset
 tracker = simplegui.load_image("https://docs.google.com/uc?export=download&id=1p8XdnNa9gFLa29K8XPbRrGl4xc5jbf_h")
 game_results = simplegui.load_image("https://docs.google.com/uc?export=download&id=1cNqWsUCUQxQ_ghRKTgOqkHFIrbCqf00X")
-cloodle_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1iYxyhvOnlRQZFcIQYzIuEp7gUCYKbgKc") 
+cloodle_cover = simplegui.load_image("https://docs.google.com/uc?export=download&id=1_VY0gfn-zAuJmTx8Oz7XZv1WotWYXau6") 
 correct_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=17g6DynsUdLa_TtzHXc11zG-3N8O3dJEn")
 correct_sound.set_volume(0.1)
 flip_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")
@@ -108,7 +108,7 @@ def draw_covers(canvas):
     for i in range(len(pos_list2)):
         canvas.draw_image((cloodle_set_list[i])[0], (400 / 400 / 2), (400, 400), (cloodle_set_list[i])[1], (cloodle_set_list[i])[2])
     for i in range(len(cover_size_list)):
-        canvas.draw_image(cloodle_cover, (400 / 2, 400 / 2), (400, 400), pos_list2[i], cover_size_list[i])
+        canvas.draw_image(cloodle_cover, (1080 / 2, 1080 / 2), (1080, 1080), pos_list2[i], cover_size_list[i])
     if correct_moves != 10:
         canvas.draw_line([0, 819], [1400, 819], 182, "White")
         canvas.draw_image(tracker, (1400 / 2, 130 / 2), (1400, 130), (700, 834.1667), (1400, 130))
