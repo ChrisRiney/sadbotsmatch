@@ -106,7 +106,7 @@ fin_square_list = list((0, 0, 0, 0, 0, 0,
 def draw_covers(canvas):
     canvas.draw_image(background, (256 / 2, 256 / 2), (256, 256), (700, 455), (1400, 910))
     for i in range(len(pos_list2)):
-        canvas.draw_image((cloodle_set_list[i])[0], (400 / 400 / 2), (400, 400), (cloodle_set_list[i])[1], (cloodle_set_list[i])[2])
+        canvas.draw_image((cloodle_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (cloodle_set_list[i])[1], (cloodle_set_list[i])[2])
     for i in range(len(cover_size_list)):
         canvas.draw_image(cloodle_cover, (1080 / 2, 1080 / 2), (1080, 1080), pos_list2[i], cover_size_list[i])
     if correct_moves != 10:
