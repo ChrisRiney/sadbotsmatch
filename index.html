@@ -108,7 +108,7 @@ def draw_covers(canvas):
     for i in range(len(pos_list2)):
         canvas.draw_image((cloodle_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (cloodle_set_list[i])[1], (cloodle_set_list[i])[2])
     for i in range(len(cover_size_list)):
-        canvas.draw_image(cloodle_cover, (1080 / 2, 1080 / 2), (1080, 1080), pos_list2[i], cover_size_list[i])
+        canvas.draw_image(cloodle_cover, (400 / 2, 400 / 2), (400, 400), pos_list2[i], cover_size_list[i])
     for i in range(len(cover_size_list)):
         canvas.draw_image(image_frame, (400 / 2, 400 / 2), (400, 400), (cloodle_set_list[i])[1], (182, 182))
     if correct_moves != 10:
@@ -471,7 +471,7 @@ close_cover1_timer = simplegui.create_timer(1, close_cover1)
 close_cover2_timer = simplegui.create_timer(1, close_cover2)
 in_game_timer = simplegui.create_timer(1, game_timer)
 frame = simplegui.create_frame("Match Cloodle", 1400, 910)
-frame.set_canvas_background("Yellow")
+frame.set_canvas_background("Black")
 frame.set_draw_handler(draw_covers) 
 frame.set_mouseclick_handler(click)
 frame.start()
