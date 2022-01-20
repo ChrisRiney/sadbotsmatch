@@ -8,8 +8,8 @@
 	<center> <img src =
 "monster banner.jpg"
 	alt = "HAPE MATCH"
-	    width = "1900"
-	    height = "633.33"
+	    width = "1920"
+	    height = "640"
 		     </center>
 <script>
 (function() {
@@ -66,7 +66,7 @@ pos_list2 = [(336, 91), (518, 91), (700, 91), (882, 91), (1064, 91),
             (336, 455), (518, 455), (700, 455), (882, 455), (1064, 455),
             (336, 637), (518, 637), (700, 637), (882, 637), (1064, 637)]
 
-start_instructions = simplegui.load_image("https://docs.google.com/uc?export=download&id=10mSmzz-jD9AkpgNNH22n6I8F0EUbMM9r")
+start_instructions = simplegui.load_image("https://docs.google.com/uc?export=download&id=1cJpkPYZVwsGTr1C1UaU5F8uPls_4NAxP")
 reset_button = simplegui.load_image("https://docs.google.com/uc?export=download&id=1QJauJDGr3TgD7tY26lsDn9nTMky7UScM")
 pressed_reset = simplegui.load_image("https://docs.google.com/uc?export=download&id=1DxjGJUXE0XPnlj9fG24TKHzTyJevBWb7")
 reset_current = pressed_reset
@@ -104,7 +104,6 @@ fin_square_list = list((0, 0, 0, 0, 0, 0,
                         0, 0, 0, 0, 0, 0))
 
 def draw_covers(canvas):
-    canvas.draw_image(background, (1500 / 2, 1500 / 2), (1500, 1500), (700, 455), (1500, 1500));	
     for i in range(len(pos_list2)):
         canvas.draw_image((cloodle_set_list[i])[0], (400 / 2, 400 / 2), (400, 400), (cloodle_set_list[i])[1], (cloodle_set_list[i])[2])
     for i in range(len(cover_size_list)):
@@ -469,7 +468,7 @@ close_cover1_timer = simplegui.create_timer(1, close_cover1)
 close_cover2_timer = simplegui.create_timer(1, close_cover2)
 in_game_timer = simplegui.create_timer(1, game_timer)
 frame = simplegui.create_frame("Match Cloodle", 1400, 910)
-frame.set_canvas_background("Cyan")
+frame.set_canvas_background("Yellow")
 frame.set_draw_handler(draw_covers) 
 frame.set_mouseclick_handler(click)
 frame.start()
