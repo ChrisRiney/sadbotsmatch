@@ -77,7 +77,7 @@ correct_sound = simplegui.load_sound("https://docs.google.com/uc?export=download
 correct_sound.set_volume(0.1)
 flip_sound = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")
 flip_sound2 = simplegui.load_sound("https://docs.google.com/uc?export=download&id=1ESVVC2PIShc8LMKI1NsbsvHt3fBJmE81")
-background = simplegui.load_image("https://docs.google.com/uc?export=download&id=1cn8guBv7-Q2nrIpnAmPuCzxNMX6gawrX")
+background = simplegui.load_image("https://docs.google.com/uc?export=download&id=18sHJn7QBQPT8HCpaE2lr7HdTCw5mpmPP")
 image_frame = simplegui.load_image("https://docs.google.com/uc?export=download&id=1mhutj4Au4ZwxCDAHsyKSPyjlMyTe4EJo")
 
 def select_pos(cloodle_pos):
@@ -105,7 +105,7 @@ fin_square_list = list((0, 0, 0, 0, 0, 0,
                         0, 0, 0, 0, 0, 0))
 
 def draw_covers(canvas):
-    canvas.draw_image(background, (500 / 2, 500 / 2), (500, 500), (700, 455), (1400, 910))
+    canvas.draw_image(background, (640 / 2, 360 / 2), (640, 360), (700, 455), (1400, 910))
     canvas.draw_line([0, 819], [1400, 819], 182, "White")
     for i in range(len(pos_list2)):
         canvas.draw_image((cloodle_set_list[i])[0], (1080 / 2, 1080 / 2), (1080, 1080), (cloodle_set_list[i])[1], (cloodle_set_list[i])[2])
